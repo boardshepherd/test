@@ -1,0 +1,22 @@
+#!/bin/sh
+# The service runs as root, and the default tmp directory for
+# root is likely /root/tmp. You can set your users to have
+# the same value for ASTMP and shared memory connections will
+# work.
+# Uncomment the following command if you want shared memory
+# connections for connections on the same machine.
+#
+# export ASTMP=/tmp
+#
+# The gd all option specifies that any user can start or stop
+# the database, while the o option specifies that all
+# messages in the Server Messages window are output to the specified
+# file.
+#
+. /opt/sqlanywhere17/bin64/sa_config.sh > /dev/null
+# The following command must be entered all on one line.
+#
+/opt/sqlanywhere17/bin64/dbspawn /opt/sqlanywhere17/bin64/dbsrv17 -n SQL  /opt/domus/data/krs.db
+
+#/opt/sybase/sqlanywhere10/bin32/dbspawn /opt/sybase/sqlanywhere10/bin32/dbsrv10 -nSQL -c32M -xtcpip -gp4096 /opt/domus/data/krs.db /opt/domus/data/krs_test.db /opt/domus/data/krs_test_skk.db 
+#/opt/sybase/sqlanywhere10/bin32/dbspawn /opt/sybase/sqlanywhere10/bin32/dbsrv10 -nSQLtest -c1500M -xtcpip -gp4096 
